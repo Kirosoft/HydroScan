@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>../../_SolutionItems/DotNetProjectParserKey.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Authors>Bartosz Jarmuż</Authors>
+    <Company>Bartosz Jarmuż</Company>
+    <Description>Simple, framework-version-independent XML-based parser of csproj files. Works with traditional .NET Framework csproj files (old and new) and modern .NET core csproj files</Description>
+    <Copyright>https://github.com/bartosz-jarmuz/DotNetProjectParser</Copyright>
+    <PackageProjectUrl>https://github.com/bartosz-jarmuz/DotNetProjectParser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bartosz-jarmuz/DotNetProjectParser</RepositoryUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/bartosz-jarmuz/DotNetProjectParser/master/_SolutionItems/parserIcon.png</PackageIconUrl>
+    <PackageTags>.net dotnet project parser core framework standard xml csproj reader</PackageTags>
+    <Configurations>Debug;Release;TestConfiguration</Configurations>
+    <Platforms>AnyCPU;x64</Platforms>
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>C:\Users\mark\source\repos\HydroScan\DotNetProjectParser\src\DotNetProjectParser\DotNetProjectParser.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <DocumentationFile>C:\Users\bjarmuz\source\repos\DotNetProjectParser\src\DotNetProjectParser\DotNetProjectParser.xml</DocumentationFile>
+    <NoWarn>1701;1702;NU5048</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

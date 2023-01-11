@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HydroScan": {
+      "commandName": "Project",
+      "commandLineArgs": "--path C:\\Users\\mark\\source\\repos"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HydroScan", "HydroScan\HydroScan.csproj", "{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7} = {6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetProjectParser", "DotNetProjectParser\src\DotNetProjectParser\DotNetProjectParser.csproj", "{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		TestConfiguration|Any CPU = TestConfiguration|Any CPU
+		TestConfiguration|x64 = TestConfiguration|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Debug|x64.Build.0 = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Release|x64.ActiveCfg = Release|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.Release|x64.Build.0 = Release|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.TestConfiguration|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.TestConfiguration|Any CPU.Build.0 = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.TestConfiguration|x64.ActiveCfg = Debug|Any CPU
+		{BDC8919D-5351-4CC4-9B55-8CD2379E1D73}.TestConfiguration|x64.Build.0 = Debug|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Debug|x64.ActiveCfg = Debug|x64
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Debug|x64.Build.0 = Debug|x64
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Release|x64.ActiveCfg = Release|x64
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.Release|x64.Build.0 = Release|x64
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.TestConfiguration|Any CPU.ActiveCfg = TestConfiguration|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.TestConfiguration|Any CPU.Build.0 = TestConfiguration|Any CPU
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.TestConfiguration|x64.ActiveCfg = TestConfiguration|x64
+		{6DD84EB8-1B9E-49B1-BADE-28B2D6F75FB7}.TestConfiguration|x64.Build.0 = TestConfiguration|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {495BE456-C8F7-42A1-A203-627EF087EA46}
+	EndGlobalSection
+EndGlobal

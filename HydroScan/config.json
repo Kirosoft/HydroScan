@@ -1,0 +1,33 @@
+﻿{
+  "ScanOptions": {
+    // Solutions starting with the paths listed here will be filtered out
+    "ExcludeSolutionDirectories": "C:\\Users\\mark\\source\\repos\\HydroScan",
+    // Projects starting with the paths listed here will be filtered out
+    "ExcludeProjectDirectories": "C:\\Users\\mark\\source\\repos\\caas-onsite-agent\\OPC_XML_DA\\",
+    // Project files to search for
+    "ProjectFiles": "*.csproj"
+  },
+  "ElasticOptions": {
+    "ApiKey": "aHV6YmlJVUJNOFNZQXBYOGlmWGI6YnNRSFRmYWFSZEM5aGRTamRJNXpJUQ==",
+    "CloudId": "UKHO_Non_Live:dWtzb3V0aC5henVyZS5lbGFzdGljLWNsb3VkLmNvbTo0NDMkN2Y0ZTY0ODlmZDQ5NGEyM2I1NTkzMzgwOGExZWVkYjUkNWNlZGY5MTdkY2I0NDEwYThhODVkYTIyZjhiNGQ1NjE=",
+    "Url": "https://ukho-nonlive-elastic.es.uksouth.azure.elastic-cloud.com:9200",
+    "Fingerprint": "ED:36:25:45:57:21:8B:36:90:DE:D4:DB:0F:70:A5:63:14:2F:B6:E0:19:51:5B:4C:7F:AA:BC:89:09:00:1F:8F"
+  },
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "Override": {
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "data.log"
+        }
+      }
+    ]
+  }
+}
