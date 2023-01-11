@@ -12,6 +12,10 @@ using HydroScan.dto;
 
 class Program
 {
+    private const string SOLUTION_INDEX_SUFFIX = "_solutions";
+    private const string PROJECT_INDEX_SUFFIX = "_projects";
+    private const string DEPENDENCY_INDEX_SUFFIX = "_dependencies";
+
     private static ScanOptions _scanOptions = new ScanOptions();
     private static ElasticOptions _elasticOptions = new ElasticOptions();
     private static ElasticsearchClient? _client;
@@ -89,16 +93,20 @@ class Program
 
                 if (projectFiles != null)
                 {
+                    // Create the solution maps with projects and project deps
                     var allSolutionsMaps = filteredSolutionFilePaths.Select(x => new SolutionMap(x, projectFiles
                                             .Where(y => y.FullPath.StartsWith(x, StringComparison.CurrentCultureIgnoreCase))
                                             //.Select(y => y.Split("\\").TakeLast(1).First()) // Takes just the project name and not the path
                                             .ToList()));
 
+                    // serialise the solution/project map into an index
                     var response = _client?.IndexMany(allSolutionsMaps.Select(s => new SolutionInfo { SolutionName = s.SolutionName, ProjectNames = s.Projects.Select(p => p.Name).ToList()}), 
-                                                                                $"{_elasticOptions.IndexName}_solutions");
-                    response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.Select(p => p)), $"{_elasticOptions.IndexName}_projects");
+                                                                                $"{_elasticOptions.IndexName}{SOLUTION_INDEX_SUFFIX}");
+                    // serialise the project/deps map into a index 
+                    response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.Select(p => p)), $"{_elasticOptions.IndexName}{PROJECT_INDEX_SUFFIX}");
+                    // serialise the detailed deps into an index
                     response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.SelectMany(p => p.Dependencies.Select(d => d))), 
-                                            $"{_elasticOptions.IndexName}_dependencies");
+                                            $"{_elasticOptions.IndexName}{DEPENDENCY_INDEX_SUFFIX}");
 
                     if (response == null || !response.IsValidResponse)
                     { 
