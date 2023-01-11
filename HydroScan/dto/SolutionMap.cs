@@ -36,16 +36,16 @@ namespace HydroScan.dto
 
                 return new ProjectInfo
                 {
-                    Id = p.Name,
-                    Name = p.Name,
-                    AssemblyName = p.AssemblyName,
-                    FullPath = p.FullPath,
-                    DirectoryPath = p.DirectoryPath,
-                    OutputType = p.OutputType,
-                    TargetExtension = p.TargetExtension,
-                    TargetFramework = p.TargetFramework,
-                    DependencyIdList = dependencies.Select(x => x.Id).ToList(),
-                    Dependencies = dependencies,
+                    Id = p?.Name ?? $"Id Missing-{DateTime.UtcNow}",
+                    Name = p?.Name ?? $"Name missing-{DateTime.UtcNow}",
+                    AssemblyName = p?.AssemblyName ?? $"AssemblyNameMissing",
+                    FullPath = p?.FullPath ?? $"FullPath missing",
+                    DirectoryPath = p?.DirectoryPath ?? $"DirectoryPath missing-{DateTime.UtcNow}",
+                    OutputType = p?.OutputType ?? $"OutputType missing-{DateTime.UtcNow}",
+                    TargetExtension = p?.TargetExtension ?? $"TargetExtension missing-{DateTime.UtcNow}",
+                    TargetFramework = p?.TargetFramework ?? $"TargetFrameowkr missing-{DateTime.UtcNow}",
+                    DependencyIdList = dependencies?.Select(x => x.Id).ToList() ?? new List<string>(),
+                    Dependencies = dependencies ?? new List<ProjectDependency>(),
                     SolutionName = Id
                 };
             }).ToList();

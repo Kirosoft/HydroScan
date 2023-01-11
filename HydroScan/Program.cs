@@ -15,9 +15,7 @@ class Program
     private static ScanOptions _scanOptions = new ScanOptions();
     private static ElasticOptions _elasticOptions = new ElasticOptions();
     private static ElasticsearchClient? _client;
-    private static string SOLUTION_MAP_INDEX = "hydroscan";
-    private static string PROJECT_DEPENDECIES_MAP_INDEX = "project_dependencies_map";
-
+ 
     static async Task<int> Main(string[] args)
     {
         Log.Logger = new LoggerConfiguration()
@@ -93,24 +91,25 @@ class Program
                 {
                     var allSolutionsMaps = filteredSolutionFilePaths.Select(x => new SolutionMap(x, projectFiles
                                             .Where(y => y.FullPath.StartsWith(x, StringComparison.CurrentCultureIgnoreCase))
-                                            //.Select(y => y.Split("\\").TakeLast(1).First()) // Takes just the project name and notn the path
+                                            //.Select(y => y.Split("\\").TakeLast(1).First()) // Takes just the project name and not the path
                                             .ToList()));
 
-                    var response = _client?.IndexMany(allSolutionsMaps.Select(s => new SolutionInfo { SolutionName = s.SolutionName, ProjectNames = s.Projects.Select(p => p.Name).ToList()}), $"{SOLUTION_MAP_INDEX}_solutions");
-                    response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.Select(p => p)), $"{SOLUTION_MAP_INDEX}_projects");
+                    var response = _client?.IndexMany(allSolutionsMaps.Select(s => new SolutionInfo { SolutionName = s.SolutionName, ProjectNames = s.Projects.Select(p => p.Name).ToList()}), 
+                                                                                $"{_elasticOptions.IndexName}_solutions");
+                    response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.Select(p => p)), $"{_elasticOptions.IndexName}_projects");
                     response = _client?.IndexMany(allSolutionsMaps.SelectMany(s => s.Projects.SelectMany(p => p.Dependencies.Select(d => d))), 
-                                            $"{SOLUTION_MAP_INDEX}_dependencies");
+                                            $"{_elasticOptions.IndexName}_dependencies");
 
-                    if (!response.IsValidResponse)
+                    if (response == null || !response.IsValidResponse)
                     { 
-                        throw new Exception("Elasticsearch response error. " + response.DebugInformation);
+                        throw new Exception("Elasticsearch response error. " + response?.DebugInformation);
                     }
 
                 }
             }
         }
 
-        Log.Information("test1");
+        Log.Information("Hydroscan finished");
 
     }
 }

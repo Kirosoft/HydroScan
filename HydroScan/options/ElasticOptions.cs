@@ -13,5 +13,7 @@ namespace HydroScan.options
         public string Fingerprint { get; set; } = "";
 
         public string CloudId { get; set; } = "";
+
+        public string IndexName { get; set; } = "Hydroscan";
     }
 }

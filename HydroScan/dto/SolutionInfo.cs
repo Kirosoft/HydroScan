@@ -8,7 +8,7 @@ namespace HydroScan.dto
 {
     public class SolutionInfo
     {
-        public string SolutionName { get; set; }
-        public List<string> ProjectNames { get; set; }
+        public string SolutionName { get; set; } = "SolutionName";
+        public List<string> ProjectNames { get; set; } = new List<string>();
     }
 }
